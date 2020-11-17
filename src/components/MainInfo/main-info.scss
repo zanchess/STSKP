@@ -1,0 +1,27 @@
+.main-page__header{
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.main-info__content{
+	display: grid;
+  grid-template-columns: repeat(4, 250px);
+	grid-column-gap: 30px;
+	margin-top: 45px;
+  margin-left:40px;
+  justify-content: center;
+  align-items: center;
+  
+  .main-info__block{
+    border-radius: 10px;
+    background-color: rgb(181, 181, 181);
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
