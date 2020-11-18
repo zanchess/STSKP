@@ -8,7 +8,6 @@ import Statistic from './components/Statistics/Statistic';
 import routes from './constants/routes';
 import MainPage from './pages/MainPage/MainPage';
 import './app.scss';
-import { add, addNum, sub } from './redux/actions/actions';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,9 +25,10 @@ class App extends React.Component {
             <Row>
               <Col>
                 <Switch>
+                  <Route path={routes.LANDING} component={MainPage} exact />
                   <Route path={routes.NEW_NOTE} component={NewNote} />
                   <Route path={routes.STATISTICS} component={Statistic} />
-                  <Route path={routes.LANDING} component={MainPage} />
+
                 </Switch>
               </Col>
             </Row>

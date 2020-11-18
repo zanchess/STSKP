@@ -1,4 +1,6 @@
-import { ADD, ADD_NUMBER, SUB } from './actionTypes';
+import {
+  ADD, ADD_NUMBER, CLEAR_TOTAL, SUB,
+} from './actionTypes';
 
 export function add() {
   return {
@@ -16,5 +18,11 @@ export function addNum(number) {
   return {
     type: ADD_NUMBER,
     value: number,
+  };
+}
+
+export function clearTotal() {
+  return {
+    type: CLEAR_TOTAL,
   };
 }

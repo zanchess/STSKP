@@ -1,53 +1,86 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { clearTotal } from '../../redux/actions/actions';
 import './main-info.scss';
 
-const MainInfo = () => (
-  <>
-    <div className="main-page">
-      <h2 className="main-page__header">
-        Main page
-      </h2>
-      <div className="main-info__content">
-        <div className="main-info__block">
-          <h4 className="main-info__head">
-            Всего
-            {' '}
-            <br />
-            {' '}
-            тренировок:
-          </h4>
-        </div>
-        <div className="main-info__block">
-          <h4 className="main-info__head">
-            Сделано
-            {' '}
-            <br />
-            {' '}
-            подходов:
-          </h4>
-        </div>
-        <div className="main-info__block">
-          <h4 className="main-info__head">
-            Сделано
-            {' '}
-            <br />
-            {' '}
-            повторений:
-          </h4>
-        </div>
-        <div className="main-info__block">
-          <h4 className="main-info__head">
-            Любимое
-            {' '}
-            <br />
-            {' '}
-            упражнение:
-          </h4>
+const MainInfo = (props) => {
+  console.log(props);
+  return (
+    <>
+      <div className="main-page">
+        <h2 className="main-page__header">
+          Main page
+        </h2>
+        <div className="main-info__content">
+          <div className="main-info__block">
+            <h4 className="main-info__head">
+              Всего
+              {' '}
+              <br />
+              {' '}
+              тренировок:
+              <br />
+            </h4>
+            <p className="main-info__p">
+              {props.totalInfo.totalTraining}
+            </p>
+          </div>
+          <div className="main-info__block">
+            <h4 className="main-info__head">
+              Сделано
+              {' '}
+              <br />
+              {' '}
+              подходов:
+              <br />
+            </h4>
+            <p className="main-info__p">
+              {props.totalInfo.approachesDone}
+            </p>
+          </div>
+          <div className="main-info__block">
+            <h4 className="main-info__head">
+              Сделано
+              {' '}
+              <br />
+              {' '}
+              повторений:
+              <br />
+            </h4>
+            <p className="main-info__p">
+              {props.totalInfo.repsDone}
+            </p>
+          </div>
+          <div className="main-info__block">
+            <h4 className="main-info__head">
+              Любимое
+              {' '}
+              <br />
+              {' '}
+              упражнение:
+              <br />
+            </h4>
+            <p className="main-info__p">
+              {props.totalInfo.favoriteExercise}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </>
-);
+    </>
+  );
+};
 
-export default MainInfo;
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    totalInfo: state.totalInfo,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    clearTotal: () => dispatch(clearTotal()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainInfo);
