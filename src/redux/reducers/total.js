@@ -4,6 +4,10 @@ const initialState = {
   totalTraining: 10,
   approachesDone: 30,
   repsDone: 300,
+  lastTraining: 0,
+  lastApproaches: 0,
+  lastReps: 0,
+
   favoriteExercise: 'Push Up',
 
 };

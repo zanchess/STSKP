@@ -1,3 +1,5 @@
+import { faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { connect } from 'react-redux';
 import { clearTotal } from '../../redux/actions/actions';
@@ -24,6 +26,11 @@ const MainInfo = (props) => {
             <p className="main-info__p">
               {props.totalInfo.totalTraining}
             </p>
+            <div className="main-info__progress">
+              <FontAwesomeIcon icon={faLongArrowAltUp} size="lg" color="green" />
+              <span>{props.totalInfo.lastTraining}</span>
+            </div>
+
           </div>
           <div className="main-info__block">
             <h4 className="main-info__head">
@@ -37,6 +44,11 @@ const MainInfo = (props) => {
             <p className="main-info__p">
               {props.totalInfo.approachesDone}
             </p>
+            <div className="main-info__progress">
+              <FontAwesomeIcon icon={faLongArrowAltUp} size="lg" color="green" />
+              {' '}
+              <span>{props.totalInfo.lastApproaches}</span>
+            </div>
           </div>
           <div className="main-info__block">
             <h4 className="main-info__head">
@@ -50,6 +62,10 @@ const MainInfo = (props) => {
             <p className="main-info__p">
               {props.totalInfo.repsDone}
             </p>
+            <div className="main-info__progress">
+              <FontAwesomeIcon icon={faLongArrowAltUp} size="lg" color="green" />
+              <span>{props.totalInfo.lastReps}</span>
+            </div>
           </div>
           <div className="main-info__block">
             <h4 className="main-info__head">

@@ -16,7 +16,7 @@
   .main-info__block{
     border-radius: 10px;
     background-color: rgb(181, 181, 181);
-    min-height: 150px;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     padding-top: 10px;
@@ -26,6 +26,11 @@
 
   .main-info__p{
     font-size: 40px;
+  }
+
+  .main-info__progress > span{
+    display: inline-block;
+    margin-left: 5px;
   }
 }
 
