@@ -2,7 +2,6 @@ import { faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { connect } from 'react-redux';
-import { clearTotal } from '../../redux/actions/actions';
 import './main-info.scss';
 
 const MainInfo = (props) => {
@@ -95,7 +94,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    clearTotal: () => dispatch(clearTotal()),
   };
 }
 

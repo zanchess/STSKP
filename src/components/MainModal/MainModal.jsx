@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
-
 import { Button, Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { clearTotal } from '../../redux/actions/actions';
+import './main-modal.scss';
 
 const MainModal = (props) => {
+  console.log(props);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const clearButtonHadler = () => {
+    props.clearTotal();
+    handleClose();
+  };
+
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch static backdrop modal
+      <Button className="clear-modal__call-btn" variant="primary" onClick={handleShow}>
+        Очитситить
       </Button>
 
       <Modal
@@ -22,17 +29,17 @@ const MainModal = (props) => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Очистить общую статистику</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          I will not close if you click outside me. Don't even try to press
-          escape key.
+          Очистака происходит без возможности восстановить данную информацию!
+          Если вы не хотите очистить общую статистику, то нажмите отмена.
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Отмена
           </Button>
-          <Button variant="primary">Understood</Button>
+          <Button onClick={clearButtonHadler} variant="primary">Очистить</Button>
         </Modal.Footer>
       </Modal>
     </>
@@ -47,6 +54,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    clearTotal: () => dispatch(clearTotal()),
   };
 }
 

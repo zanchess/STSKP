@@ -20,6 +20,9 @@ function totalInfo(state = initialState, action) {
         approachesDone: 0,
         repsDone: 0,
         favoriteExercise: 'chair',
+        lastTraining: 0,
+        lastApproaches: 0,
+        lastReps: 0,
       };
     default:
       break;
