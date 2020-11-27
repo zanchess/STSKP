@@ -1,9 +1,9 @@
 const LANDING = '/';
-const NEW_NOTE = '/note';
+const NEW_TRAINING = '/new';
 const STATISTICS = '/stat';
 
 export default {
   LANDING,
-  NEW_NOTE,
+  NEW_TRAINING,
   STATISTICS,
 };

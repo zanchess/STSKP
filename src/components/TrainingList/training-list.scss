@@ -1,0 +1,9 @@
+.training-list{
+  display: grid;
+  grid-template-columns: repeat(4, 220px);
+	grid-column-gap: 30px;
+	margin-top: 45px;
+  margin-left:40px;
+  justify-content: center;
+  align-items: center;
+}

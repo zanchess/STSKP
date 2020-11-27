@@ -1,0 +1,18 @@
+.training-item{
+  height: 150px;
+  border-radius: 5px;
+  background-color: rgb(181, 181, 181);
+  margin-top: 20px;
+  align-items: center;
+  transition: background-color .2s ease;
+  cursor: pointer;
+
+  &:hover{
+    background-color: rgb(116, 116, 116);
+  }
+
+  h5{
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+}
