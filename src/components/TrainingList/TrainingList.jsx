@@ -5,7 +5,7 @@ import './training-list.scss';
 
 const TrainingList = (props) => {
   console.log(props);
-  const exerciseList = exercises.map((elem) => <TrainingItem info={elem} />);
+  const exerciseList = exercises.map((elem, i) => <TrainingItem key={i} info={elem} />);
   return (
     <div className="training-list">
       {exerciseList}

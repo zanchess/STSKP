@@ -8,12 +8,9 @@ import routes from './constants/routes';
 import MainPage from './pages/MainPage/MainPage';
 import './app.scss';
 import NewTraining from './pages/NewTraining/NewTraining';
+import TrainingDetail from './components/TrainingDetail/TrainingDetail';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     console.log(this.props);
     return (
@@ -26,6 +23,7 @@ class App extends React.Component {
               <Col>
                 <Switch>
                   <Route path={routes.LANDING} component={MainPage} exact />
+                  <Route path="/new/:name" component={TrainingDetail} />
                   <Route path={routes.NEW_TRAINING} component={NewTraining} />
                   <Route path={routes.STATISTICS} component={Statistic} />
                 </Switch>

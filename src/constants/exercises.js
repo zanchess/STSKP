@@ -1,52 +1,52 @@
 const exercises = [
   {
     ru: 'Бег',
-    en: 'running',
+    eng: 'running',
     id: 1,
   },
   {
     ru: 'Отжимания',
-    en: 'push ups',
-    id: '1',
+    eng: 'pushups',
+    id: 2,
   },
   {
     ru: 'Подтягивания',
-    en: 'pull ups',
+    eng: 'pullups',
     id: 3,
   },
   {
     ru: 'Ноги',
-    eng: 'leg exercises',
+    eng: 'legs',
     id: 4,
   },
   {
     ru: 'Пресс',
-    eng: 'abs exercises',
+    eng: 'abs',
     id: 5,
   },
   {
     ru: 'Плечи',
-    eng: 'shoulder exercises',
+    eng: 'shoulder',
     id: 6,
   },
   {
     ru: 'Бицепс',
-    eng: 'biceps exercises',
+    eng: 'biceps',
     id: 7,
   },
   {
     ru: 'Трицепс',
-    eng: 'triceps exercises',
+    eng: 'triceps',
     id: 8,
   },
   {
     ru: 'Грудные мышцы',
-    eng: 'pectoral muscles',
+    eng: 'pectoral',
     id: 9,
   },
   {
     ru: 'Спинные мыщцы',
-    eng: 'back muscles',
+    eng: 'back',
     id: 10,
   },
 ];
