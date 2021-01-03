@@ -1,14 +1,6 @@
 import { CLEAR_TOTAL, GET_MAIN_INFO } from '../actions/actionTypes';
 
 const initialState = {
-  totalTraining: 10,
-  approachesDone: 30,
-  repsDone: 300,
-  lastTraining: 0,
-  lastApproaches: 0,
-  lastReps: 0,
-  favoriteExercise: 'Push Up',
-
 };
 
 function totalInfo(state = initialState, action) {
@@ -24,7 +16,7 @@ function totalInfo(state = initialState, action) {
         lastReps: 0,
       };
     case GET_MAIN_INFO:
-      console.log(action.value);
+      return action.value.data[0];
     default:
       break;
   }

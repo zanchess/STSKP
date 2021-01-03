@@ -1,13 +1,15 @@
 import { faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button } from 'react-bootstrap';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import './main-info.scss';
 import { getMainInfo } from '../../redux/actions/actions';
 
 const MainInfo = (props) => {
-  console.log(props);
+  useEffect(() => {
+    props.getMainInfo();
+  }, []);
+
   return (
     <>
       <div className="main-page">
@@ -83,9 +85,6 @@ const MainInfo = (props) => {
           </div>
         </div>
       </div>
-      <Button onClick={props.getMainInfo} variant="secondary">
-        Получить данные
-      </Button>
     </>
   );
 };
