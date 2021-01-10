@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Line } from 'react-chartjs-2';
 import { connect } from 'react-redux';
+import { getStatsInfo } from '../../redux/actions/actions';
 
-const StatisticLongTerm = () => {
+const StatisticLongTerm = (props) => {
+  useEffect(() => {
+    props.getStatsInfo();
+  }, []);
+
   const testDATA = [
     { date: '1/6/2020', words: 6 },
     { date: '2/6/2020', words: 3 },
@@ -68,4 +73,17 @@ const StatisticLongTerm = () => {
   );
 };
 
-export default StatisticLongTerm;
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    statsInfo: state.statsInfo,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getStatsInfo: () => dispatch(getStatsInfo()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(StatisticLongTerm);

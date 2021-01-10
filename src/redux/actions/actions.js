@@ -1,26 +1,7 @@
 import axios from 'axios';
 import {
-  ADD, ADD_NUMBER, CLEAR_TOTAL, SUB, GET_MAIN_INFO,
+  CLEAR_TOTAL, GET_MAIN_INFO, GET_STATS_INFO,
 } from './actionTypes';
-
-export function add() {
-  return {
-    type: ADD,
-  };
-}
-
-export function sub() {
-  return {
-    type: SUB,
-  };
-}
-
-export function addNum(number) {
-  return {
-    type: ADD_NUMBER,
-    value: number,
-  };
-}
 
 export function clearTotal() {
   return {
@@ -33,5 +14,14 @@ export const getMainInfo = () => (dispatch) => {
     .get('http://localhost:3000/posts')
     .then((res) => {
       dispatch({ type: GET_MAIN_INFO, value: res });
+    });
+};
+
+export const getStatsInfo = () => (dispatch) => {
+  axios
+    .get('http://localhost:3000/stats')
+    .then((res) => {
+      console.log(res);
+      dispatch({ type: GET_STATS_INFO, value: res });
     });
 };
