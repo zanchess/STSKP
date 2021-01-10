@@ -4,7 +4,7 @@ import MainModal from '../../components/MainModal/MainModal';
 import './main-page.scss';
 
 const MainPage = () => (
-  <div classNam="main-page">
+  <div className="main-page">
     <MainInfo />
     <MainModal />
   </div>
