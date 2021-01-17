@@ -8,16 +8,16 @@ const StatisticLongTerm = (props) => {
   useEffect(() => {
     props.getStatsInfo();
   }, []);
-  let dates = null;
-  let numOfWords = null;
-  let sumOfWords = null;
+  const dates = {};
+  const numOfWords = {};
+  const sumOfWords = {};
 
-  if (props.statsInfo.length) {
-    dates = props.statsInfo.map((item) => item.date);
-    numOfWords = props.statsInfo.map((item) => item.words);
-    sumOfWords = [];
-    numOfWords.reduce((acc, item) => {
-      sumOfWords.push(acc + item);
+  if (props.statsInfo.running) {
+    dates.running = props.statsInfo.running.map((item) => item.date);
+    numOfWords.running = props.statsInfo.running.map((item) => item.words);
+    sumOfWords.running = [];
+    numOfWords.running.reduce((acc, item) => {
+      sumOfWords.running.push(acc + item);
       return (acc + item);
     }, 0);
   }
@@ -26,10 +26,37 @@ const StatisticLongTerm = (props) => {
   const percent = sumOfWords.map((it) => ((100 * it) / 3600).toFixed(1)); */
 
   const runningData = {
-    labels: dates,
+    labels: dates.running,
     datasets: [
       {
         label: 'Бег',
+        fill: true,
+        lineTension: 0.1,
+        backgroundColor: 'rgba(37,95,82,0.47)',
+        borderColor: 'rgba(37,95,82,0.47)',
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: '#000000',
+        pointBackgroundColor: '#000000',
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: 'rgb(236,9,9)',
+        pointHoverBorderColor: 'rgb(236,9,9)',
+        pointHoverBorderWidth: 2,
+        pointRadius: 2,
+        pointHitRadius: 10,
+        data: numOfWords.running,
+      },
+    ],
+  };
+
+  const swimmingData = {
+    labels: dates,
+    datasets: [
+      {
+        label: 'Плаванье',
         fill: true,
         lineTension: 0.1,
         backgroundColor: 'rgba(37,95,82,0.47)',
