@@ -8,36 +8,28 @@ const StatisticLongTerm = (props) => {
   useEffect(() => {
     props.getStatsInfo();
   }, []);
+  let dates = null;
+  let numOfWords = null;
+  let sumOfWords = null;
 
-  const testDATA = [
-    { date: '1/6/2020', words: 6 },
-    { date: '2/6/2020', words: 3 },
-    { date: '3/6/2020', words: 1 },
-    { date: '4/6/2020', words: 16 },
-    { date: '5/6/2020', words: 10 },
-    { date: '6/6/2020', words: 8 },
-    { date: '7/6/2020', words: 3 },
-    { date: '8/6/2020', words: 12 },
-    { date: '9/6/2020', words: 14 },
-    { date: '10/6/2020', words: 16 },
-    { date: '11/6/2020', words: 5 },
-  ];
+  if (props.statsInfo.length) {
+    dates = props.statsInfo.map((item) => item.date);
+    numOfWords = props.statsInfo.map((item) => item.words);
+    sumOfWords = [];
+    numOfWords.reduce((acc, item) => {
+      sumOfWords.push(acc + item);
+      return (acc + item);
+    }, 0);
+  }
 
-  const dates = testDATA.map((item) => item.date);
-  const numOfWords = testDATA.map((item) => item.words);
-  const sumOfWords = [];
-  numOfWords.reduce((acc, item) => {
-    sumOfWords.push(acc + item);
-    return (acc + item);
-  }, 0);
   /*   const left = sumOfWords.map((it) => 3600 - it);
   const percent = sumOfWords.map((it) => ((100 * it) / 3600).toFixed(1)); */
 
-  const data = {
+  const runningData = {
     labels: dates,
     datasets: [
       {
-        label: 'Количество изученных слов.',
+        label: 'Бег',
         fill: true,
         lineTension: 0.1,
         backgroundColor: 'rgba(37,95,82,0.47)',
@@ -65,7 +57,7 @@ const StatisticLongTerm = (props) => {
       <Row>
         <Col lg={6}>
           <div className="statistic-long-term">
-            <Line key="num" data={data} />
+            <Line key="num" data={runningData} />
           </div>
         </Col>
       </Row>
