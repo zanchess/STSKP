@@ -11,7 +11,7 @@ export function clearTotal() {
 
 export const getMainInfo = () => (dispatch) => {
   axios
-    .get('http://localhost:3000/posts')
+    .get('http://localhost:3000/doneExersices')
     .then((res) => {
       dispatch({ type: GET_MAIN_INFO, value: res });
     });
