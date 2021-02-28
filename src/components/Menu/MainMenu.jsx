@@ -44,7 +44,7 @@ const MainMenu = () => {
         </li>
 
         <li className="side-nav-item">
-          <Link to={routes.NEW_NOTE} className="side-nav-link">
+          <Link to={routes.NEW_TRAINING} className="side-nav-link">
             <FontAwesomeIcon icon={faPlus} />
             <span> Новая запись </span>
           </Link>

@@ -1,20 +1,27 @@
-import { ADD, ADD_NUMBER, SUB } from './actionTypes';
+import axios from 'axios';
+import {
+  CLEAR_TOTAL, GET_MAIN_INFO, GET_STATS_INFO,
+} from './actionTypes';
 
-export function add() {
+export function clearTotal() {
   return {
-    type: ADD,
+    type: CLEAR_TOTAL,
   };
 }
 
-export function sub() {
-  return {
-    type: SUB,
-  };
-}
+export const getMainInfo = () => (dispatch) => {
+  axios
+    .get('http://localhost:3000/doneExersices')
+    .then((res) => {
+      dispatch({ type: GET_MAIN_INFO, value: res });
+    });
+};
 
-export function addNum(number) {
-  return {
-    type: ADD_NUMBER,
-    value: number,
-  };
-}
+export const getStatsInfo = () => (dispatch) => {
+  axios
+    .get('http://localhost:3000/stats')
+    .then((res) => {
+      console.log(res);
+      dispatch({ type: GET_STATS_INFO, value: res });
+    });
+};
